@@ -1,4 +1,5 @@
-import { Directive , HostBinding , HostListener , Input } from '@angular/core';
+import { Directive , HostBinding , HostListener , Input 
+, Attribute } from '@angular/core';
 
 @Directive({
   selector: '[greet]'
@@ -11,7 +12,10 @@ export class GreetDirective {
   @HostListener('click',['$event']) 
   onclick(event){
     this.greet = 'Clicked!';
+    console.dir(event);
   }
-  constructor() { }
+  constructor(@Attribute('author') public author:string) { 
+    console.log('@Attribute:',author);
+  }
 
 }
