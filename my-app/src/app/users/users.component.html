@@ -1,0 +1,10 @@
+<p>
+  users works!
+</p>
+<u>{{desc | json}}</u>
+<div>
+  <form (submit)="addSkill(skill.value,skill)">
+    <label>添加技能</label>
+    <input type="text" #skill>
+  </form>
+</div>
