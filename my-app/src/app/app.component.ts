@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,TemplateRef,ViewContainerRef,ViewChild,AfterViewInit ,ElementRef} from '@angular/core';
 interface Address{
   province:string;
   city:string;
@@ -12,7 +12,8 @@ interface Description{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.styl']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  @ViewChild('tpl') tplRef:TemplateRef<any>;
   // title = 'Special Clock';
   // description = {
   //   color:'Blue',
@@ -27,7 +28,7 @@ export class AppComponent {
   description:Description;
   showSkills:boolean;
   skills:string[];
-  constructor(){
+  constructor(private vcRef:ViewContainerRef ,private elementRef:ElementRef){
     this.title = 'My o\'Clock';
     this.address = {
       province:'福建',
@@ -45,8 +46,12 @@ export class AppComponent {
       'Angular 6.x',
     ]
   }
+  ngAfterViewInit(){
+    this.vcRef.createEmbeddedView(this.tplRef);
+    console.log('NativeElement',this.elementRef.nativeElement.querySelector('div'));
+  }
   toogleSkills(evt:any){
-    console.log(evt);
+    console.log('When Clicked',evt);
     evt.stopPropagation();
     this.showSkills = !this.showSkills ;
   }

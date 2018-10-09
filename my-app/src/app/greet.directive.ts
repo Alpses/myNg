@@ -14,8 +14,8 @@ export class GreetDirective {
     this.greet = 'Clicked!';
     console.dir(event);
   }
-  constructor(@Attribute('author') public author:string) { 
+
+  constructor(@Attribute('author') public author:string ) { 
     console.log('@Attribute:',author);
   }
-
 }
