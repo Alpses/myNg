@@ -29,6 +29,7 @@ export class AppComponent implements AfterViewInit {
   showSkills:boolean;
   skills:string[];
   private context:any;
+  private condition:Boolean;
   constructor(private vcRef:ViewContainerRef ,private elementRef:ElementRef){
     this.title = 'My o\'Clock';
     this.address = {
@@ -50,7 +51,8 @@ export class AppComponent implements AfterViewInit {
       message:"设置~~~~~~设置",
       message2:'Do it!',
       $implicit:"使用硬件加速模式（如果可用）"
-    }
+    };
+    this.condition = false ;
   }
   ngAfterViewInit(){
     this.vcRef.createEmbeddedView(this.tplRef);// 被追加在最下面

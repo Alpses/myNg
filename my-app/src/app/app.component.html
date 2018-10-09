@@ -7,12 +7,14 @@
   <h2 [greet]="'Hello My O\'clock'" author='AlpsesGit' style="color:cyan;">Hello ANG4.X</h2> 
 
   <ng-template #tpl>This is a invisible template TEST！！！</ng-template>
-  
+
   <ng-template #stpl>NgtemplateOutlet TEST 1</ng-template>
   <ng-template #atpl>NgtemplateOutlet TEST 2</ng-template>
   <h4 [ngTemplateOutlet]='atpl'>ATPL</h4>
   <h4 [ngTemplateOutlet]='stpl'>Stpl</h4>
 
+  <h4 *appUnless="condition" style="color:dodgerblue;">Direcrive is Fasy Test</h4><br>
+  
   <img width="30" alt="Angular Logo" src="../favicon.ico">
   <p class="description">This is my first ng-app <i><strong>{{title}}</strong></i></p>
   <p>It's a special APP: <strong>{{description.text}}</strong>,with <strong>{{description.color}}</strong> ,No doubt!</p>
