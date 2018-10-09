@@ -8,6 +8,11 @@
 
   <ng-template #tpl>This is a invisible template TEST！！！</ng-template>
   
+  <ng-template #stpl>NgtemplateOutlet TEST 1</ng-template>
+  <ng-template #atpl>NgtemplateOutlet TEST 2</ng-template>
+  <h4 [ngTemplateOutlet]='atpl'>ATPL</h4>
+  <h4 [ngTemplateOutlet]='stpl'>Stpl</h4>
+
   <img width="30" alt="Angular Logo" src="../favicon.ico">
   <p class="description">This is my first ng-app <i><strong>{{title}}</strong></i></p>
   <p>It's a special APP: <strong>{{description.text}}</strong>,with <strong>{{description.color}}</strong> ,No doubt!</p>
@@ -30,6 +35,20 @@
 <app-users></app-users>
 <hr/>
 <app-mess-code></app-mess-code>
+<hr/>
+
+<ng-template #wtpl let-message="message">
+  <p>{{message}}</p>
+</ng-template>
+<ng-template #vtpl let-msg="message2">
+  <p>{{msg}}</p>
+</ng-template>
+<ng-template #xtpl let-msg>
+  <p>{{msg}}</p>
+</ng-template>
+<div [ngTemplateOutlet]='wtpl'  [ngTemplateOutletContext]='context'></div>
+<div [ngTemplateOutlet]='vtpl'  [ngTemplateOutletContext]='context'></div>
+<div [ngTemplateOutlet]='xtpl'  [ngTemplateOutletContext]='context'></div>
 <!-- <ul>
   <li>
     <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>

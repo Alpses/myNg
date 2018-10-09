@@ -28,6 +28,7 @@ export class AppComponent implements AfterViewInit {
   description:Description;
   showSkills:boolean;
   skills:string[];
+  private context:any;
   constructor(private vcRef:ViewContainerRef ,private elementRef:ElementRef){
     this.title = 'My o\'Clock';
     this.address = {
@@ -44,10 +45,15 @@ export class AppComponent implements AfterViewInit {
       'Angular 2.x',
       'Angular 4.x',
       'Angular 6.x',
-    ]
+    ];
+    this.context={
+      message:"设置~~~~~~设置",
+      message2:'Do it!',
+      $implicit:"使用硬件加速模式（如果可用）"
+    }
   }
   ngAfterViewInit(){
-    this.vcRef.createEmbeddedView(this.tplRef);
+    this.vcRef.createEmbeddedView(this.tplRef);// 被追加在最下面
     console.log('NativeElement',this.elementRef.nativeElement.querySelector('div'));
   }
   toogleSkills(evt:any){
